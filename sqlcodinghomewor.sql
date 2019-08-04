@@ -140,3 +140,8 @@ SELECT * FROM employees ORDER BY last_name DESC
 SELECT COUNT(last_name)
 FROM employees
 ORDER BY COUNT DESC;
+
+SELECT last_name, COUNT(last_name)AS Frequency
+FROM employees
+GROUP BY last_name
+ORDER BY COUNT(last_name) DESC;
