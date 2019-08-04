@@ -91,9 +91,11 @@ ON employees.emp_no = salaries.emp_no;
 
 --Query 02
 --List employees who were hired in 1986.
-SELECT hire_date, hire_date id
+
+SELECT employees.hire_date, employees.last_name, employees.first_name, employees.gender
 FROM employees
-ORDER BY id = 1986;
+ORDER BY id = 1986
+
 
 --Query 03
 --List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name, and start and end employment dates.
@@ -114,8 +116,9 @@ FROM employees, departments
 --Query 5
 -- List all employees whose first name is "Hercules" and last names begin with "B."
 SELECT first_name, last_name FROM employees
-WHERE first_name in ('Hercules')
-order by last_name in ('B%')
+WHERE first_name in ('Hercules') AND last_name like ('B%')
+
+
 
 --Query 6
 -- List all employees in the Sales department, including their employee number, last name, first name, and department name.
@@ -132,4 +135,8 @@ WHERE dept_name in ('Sales', 'Development')
 		
 --Query 8
 -- In descending order, list the frequency count of employee last names, i.e., how many employees share each last name.
-SELECT * FROM employees ORDER BY last_name DESC		
+SELECT * FROM employees ORDER BY last_name DESC	
+
+SELECT COUNT(last_name)
+FROM employees
+ORDER BY COUNT DESC;
